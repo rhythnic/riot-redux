@@ -13,11 +13,11 @@ creators into components.  React too can seem a bit wordy, which is what got me 
 ## Example folder ##
 
 The example folder contains all the files that you can run with a local web-server.
-It doesn't use ES6 or modules, but it meant to be easily downloaded and run.
+It doesn't use ES6 or modules, but it is meant to be easy to download and run.
 The example folder contains a file 'riot-redux.js' which is the mixin that may become
 a published library after I receive community input regarding the API.  I know other
 Riot-Redux mixins exist, but I wanted to provide an alternate take on the architecture
-and API, and if the other mixin maintainers are up for it, we could merge the the
+and API, and if the other mixin maintainers are up for it, we could merge the
 mixins or just maintain them separately.
 
 
@@ -40,6 +40,7 @@ properties on the tag object.
 
 ### Tag API ###
 
+```
 this.mixin('redux')
 
 // specify store mapping
@@ -52,6 +53,7 @@ this.use({prop: 'store.prop.path'})
 this.dispatch('type_string' [, actionData])
 // or
 this.store.dispatch({type: 'type_string', data: data})
+```
 
 'this.store' is the redux store wrapped in a riot observable, so it has those APIs
 available.

@@ -1,3 +1,4 @@
+// simulating async request
 function fetchTodo(callback) {
   var todo = {
     title: 'I want to behave!',
@@ -41,7 +42,6 @@ var TodoLogic = (function() {
     // Action creators
 
     store.on('fetch-todo', function () {
-      // simulating async fetch
       fetchTodo(function (todo) {
         store.dispatch({type: 'load_todo', todo: todo});
       })
