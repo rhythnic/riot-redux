@@ -44,7 +44,7 @@ properties on the tag object.
 this.mixin('redux')
 
 // specify store mapping
-this.use({prop: 'store.prop.path'})
+this.use({prop: 'prop.path.in.store'})
 
 // use in template
 <p>{state.prop}</p>
@@ -53,6 +53,9 @@ this.use({prop: 'store.prop.path'})
 this.dispatch('type_string' [, actionData])
 // or
 this.store.dispatch({type: 'type_string', data: data})
+
+// async action or action with dependencies
+this.store.trigger('action_name', {data: data})
 ```
 
 'this.store' is the redux store wrapped in a riot observable, so it has those APIs
