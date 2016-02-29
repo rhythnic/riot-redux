@@ -50,12 +50,21 @@ this.use({prop: 'prop.path.in.store'})
 <p>{state.prop}</p>
 
 // dispatch to store
-this.dispatch('type_string' [, actionData])
-// or
 this.store.dispatch({type: 'type_string', data: data})
+// convenience method, results in same as above
+this.dispatch('type_string', {data: data})
 
-// async action or action with dependencies
-this.store.trigger('action_name', {data: data})
+// use trigger for asynchronous events like login
+// if you are putting your logic inside of your component, this might not be necessary
+// but if your logic is in another file, you can use this to trigger the event
+var data = {user: 'username', password: 'secret'};
+this.store.trigger('login', data);
+
+// in another file
+store.on('login', function(data) {
+  this.dispatch({type: 'LOGIN'});
+  // start login process
+}
 ```
 
 'this.store' is the redux store wrapped in a riot observable, so it has those APIs
